@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 
 /**
  * React 는 state 를 props 를 통해서 공유가 가능하다!
@@ -64,7 +63,7 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : ')');
 
     return (
       <div>
@@ -111,8 +110,3 @@ ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
