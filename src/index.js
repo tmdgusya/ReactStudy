@@ -4,10 +4,27 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 class Square extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value : null
+    };
+  }
+
   render() {
+    console.log(this.state.value)
     return (
-      <button className="square">
-        {this.props.value}
+      <button className="square" onClick = { 
+        () => { 
+          if(this.state.value === 'X') {
+            this.setState({value : null})
+          }else {
+            this.setState({value : 'X'}); 
+          }
+        }
+        }>
+        {this.state.value}
       </button>
     );
   }
