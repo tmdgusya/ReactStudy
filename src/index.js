@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+/**
+ * React 는 state 를 props 를 통해서 공유가 가능하다!
+ */
+
 class Square extends React.Component {
 
   constructor(props) {
@@ -31,7 +35,8 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares : Array(9).fill(null)
+      squares : Array(9).fill(null),
+      xIsNext : true
     };
   }
 
@@ -45,19 +50,21 @@ class Board extends React.Component {
 
   handleClick(i) {
     // Copy squares array 
+    // Copy 배열을 쓰는 이유는 상태 변화가 일어날때 마다 render 될 수 있으므로 
+    // 복사 배열을 사용한다.
     const squares = this.state.squares.slice();
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
 
-    if(squares[i] === 'X') {
-      squares[i] = null;
-    }else { 
-      squares[i] = 'X';
-    }
-    
-    this.setState({squares : squares})
+    this.setState(
+        {
+          squares : squares,
+          xIsNext : !this.state.xIsNext
+        }
+      )
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
