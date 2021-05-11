@@ -65,6 +65,7 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
+        <Page />
       </div>
     );
   }
@@ -136,6 +137,44 @@ class Game extends React.Component {
           xIsNext : !this.state.xIsNext
         }
       )
+  }
+
+}
+
+class Page extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {pageBar : ['<<', 1, 2, 3, 4, 5, '>>']}
+  }
+
+  render() {
+
+    const pageMenu = this.state.pageBar.map((pageNum) => 
+      <li key={pageNum.toString()}>
+        <a href={"id="+pageNum}>{pageNum}</a>
+      </li>
+    );
+
+    return (
+      <div className='page_bar'>
+        <ul id='page_group'>
+          {pageMenu}
+        </ul>
+      </div>
+    );
+  }
+
+}
+
+class PageUpButton extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    <li></li>
   }
 
 }
