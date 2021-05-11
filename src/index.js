@@ -141,6 +141,7 @@ class Game extends React.Component {
 
 }
 
+//TODO '<<' '>>' Button 은 Component 를 분리해야 할듯?
 class Page extends React.Component {
 
   constructor(props) {
@@ -166,19 +167,6 @@ class Page extends React.Component {
   }
 
 }
-
-class PageUpButton extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    <li></li>
-  }
-
-}
-
 // ========================================
 
 ReactDOM.render(
